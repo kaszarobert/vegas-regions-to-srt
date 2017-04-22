@@ -9,7 +9,7 @@ If you wish to use Regions to manage subtitles for your project instead of the b
 4. If you don't see these scripts, click to 'Rescan Script Menu Folder' and do again Step 3.
 5. Click to the desired script:
 
-| Script filename                                   | What id does?                                                                                                                                                                                        |
+| Script filename                                   | What it does?                                                                                                                                                                                        |
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Export SRT                                        | Create Regions, type in text and this will export you to an *.srt file.                                                                                                                              |
 | Import SRT as Regions                             | Import an *.srt file, each subtitle will be a Region                                                                                                                                                 |
