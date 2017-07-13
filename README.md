@@ -1,6 +1,6 @@
 # Sony Vegas scripts for creating subtitles with Regions
 
-If you wish to use Regions to manage subtitles for your project instead of the built-in srt tool, then this is all you need. Create Markers to the desired time periods, type in the subtitle's text & export it to srt easily with these scripts. While using the built-in tool, I ran into problems using non-English letters for the subtitles. For me, it was easier to do the job with Markers. 
+If you wish to use Regions to manage subtitles for your project instead of the built-in srt tool, then this is all you need. Create Regions to the desired time periods, type in the subtitle's text & export it to srt easily with these scripts. While using the built-in tool, I ran into problems using non-English letters for the subtitles. For me, it was easier to do the job with Regions. 
 
 ## Usage:
 1. First detect which Sony Vegas version you have. With Sony Vegas 14, they introduced a new namespace (ScriptPortal.Vegas) and the older (Sony.Vegas) no longer works.
@@ -11,12 +11,12 @@ If you wish to use Regions to manage subtitles for your project instead of the b
 
 | Script filename                                   | What it does?                                                                                                                                                                                        |
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Export SRT                                        | Create Regions, type in text and this will export you to an *.srt file.                                                                                                                              |
-| Import SRT as Regions                             | Import an *.srt file, each subtitle will be a Region                                                                                                                                                 |
-| Import SRT as Regions and Tracks                  | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline.                                                                                                               |
-| Import SRT as Regions and Tracks NoRegionDelete   | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline. Plus, any previous Regions and Markers will remain intact.                                                    |
-| Import SRT as Regions and Tracks Q                | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline. Plus the times will be quantized to frame boundaries.                                                         |
-| Import SRT as Regions and Tracks Q NoRegionDelete | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline. Plus the times will be quantized to frame boundaries and any previous Regions and Markers will remain intact. |
-| Import SRT as Regions NoRegionDelete              | Import an *.srt file, each subtitle will be a Region. Plus, any previous Regions and Markers will remain intact.                                                                                     |
-| Import SRT as Tracks NoRegionDelete               | Import an *.srt file, each subtitle will be a Text Event on the timeline. This doesn't remove any previous Markers or Regions at all.                                                                |
-| Selected Tracks to Regions                        | Select a Track (or more if you want to) and this will create a Marker for each Event on the timeline. |
+| Export SRT                                        | Create Regions, type in text and this will export you to an *.srt file. If there're overlapping Regions a MessageBox will show that before saving.|
+| Import SRT as Regions                             | Import an *.srt file, each subtitle will be a Region.|
+| Import SRT as Regions and Tracks                  | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline.|
+| Import SRT as Regions and Tracks NoRegionDelete   | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline. Plus, any previous Regions and Markers will remain intact.|
+| Import SRT as Regions and Tracks Q                | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline. Plus the times will be quantized to frame boundaries.|
+| Import SRT as Regions and Tracks Q NoRegionDelete | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline. Plus the times will be quantized to frame boundaries and any previous Regions and Markers will remain intact.|
+| Import SRT as Regions NoRegionDelete              | Import an *.srt file, each subtitle will be a Region. Plus, any previous Regions and Markers will remain intact.|
+| Import SRT as Tracks NoRegionDelete               | Import an *.srt file, each subtitle will be a Text Event on the timeline. This doesn't remove any previous Markers or Regions at all.|
+| Selected Tracks to Regions                        | Select a Track (or more if you want to) and this will create a Marker for each Event on the timeline.|
