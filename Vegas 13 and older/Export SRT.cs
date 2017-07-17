@@ -1,6 +1,7 @@
 /*
 	Saves the Sony Vegas project Regions with their timing and text to a SubRip subtitle file.
     If any of the 2 Regions are overlapping it shows an alert to the user.
+    If a Region is shorter than 0.5 s - it shows an alert, too.
 */
 using System;
 using System.IO;
@@ -22,10 +23,22 @@ public class EntryPoint
 
         // check overlapping Regions
         String overlappingRegions = checkOverlappingRegions();
-
         if (overlappingRegions != null)
         {
-            if (MessageBox.Show(overlappingRegions + "\r\n Do you want to save with overlapped subtitles?", 
+            if (MessageBox.Show(overlappingRegions + 
+                "\r\n Do you want to save with overlapped subtitles?", 
+                "Warning", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        // warn about too short Regions that would create too short duration for subtitles.
+        String tooShortRegionsWarning = checkShortRegionLength();
+        if (tooShortRegionsWarning != null)
+        {
+            if (MessageBox.Show(tooShortRegionsWarning + 
+                "\r\n The duration is too short for reading. Do you want to save?",
                 "Warning", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 return;
@@ -67,12 +80,30 @@ public class EntryPoint
                     myVegas.Project.Regions[j].Position,
                     myVegas.Project.Regions[j].End))
                 {
-                    output += String.Format("There are overlaps between Region {0}-{1} and Region {2}-{3}",
+                    output += String.Format("There are overlaps between Region {0}-{1} and Region {2}-{3}\r\n",
                         myVegas.Project.Regions[i].Position.ToString(RulerFormat.Time),
                         myVegas.Project.Regions[i].End.ToString(RulerFormat.Time),
                         myVegas.Project.Regions[j].Position.ToString(RulerFormat.Time),
                         myVegas.Project.Regions[j].End.ToString(RulerFormat.Time));
                 }
+            }
+        }
+
+        return output;
+    }
+
+    private string checkShortRegionLength()
+    {
+        string output = null;
+        Timecode shortestTimeCode = new Timecode(500); //in milliseconds
+
+        foreach (var item in myVegas.Project.Regions)
+        {
+            if (item.Length < shortestTimeCode)
+            {
+                output += String.Format("Region {0}-{1} too short, its length is under 0.5 s\r\n",
+                    item.Position.ToString(RulerFormat.Time),
+                    item.End.ToString(RulerFormat.Time));
             }
         }
 

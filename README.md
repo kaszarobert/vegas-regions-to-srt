@@ -11,7 +11,7 @@ If you wish to use Regions to manage subtitles for your project instead of the b
 
 | Script filename                                   | What it does?                                                                                                                                                                                        |
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Export SRT                                        | Create Regions, type in text and this will export you to an *.srt file. If there're overlapping Regions a MessageBox will show that before saving.|
+| Export SRT                                        | Create Regions, type in text and this will export you to an *.srt file. If there're overlapping Regions or the duration of a Region is under 0.5 seconds, a MessageBox will warn the user before saving.|
 | Import SRT as Regions                             | Import an *.srt file, each subtitle will be a Region.|
 | Import SRT as Regions and Tracks                  | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline.|
 | Import SRT as Regions and Tracks NoRegionDelete   | Import an *.srt file, each subtitle will be a Region and a Text Event on the timeline. Plus, any previous Regions and Markers will remain intact.|
